@@ -7,8 +7,8 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp">
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/glup"/>
     <EditText
@@ -31,4 +31,10 @@
         android:layout_height="wrap_content"
         android:text="Ingresar"
         android:onClick="login"/>
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrarse"
+        android:onClick="registerUser"/>
 </LinearLayout>

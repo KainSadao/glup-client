@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private ProgressDialog pd;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +47,8 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject responseJson = new JSONObject(response.toString());
                             String status = responseJson.getString("Status");
                             if(status.equals("ok")){
-                                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(i);
+                                Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(main);
                                 finish();
                             }else if(status.equals("error")){
                                 Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
@@ -66,5 +67,10 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    public void registerUser(View v){
+        Intent register = new Intent(this, RegisterActivity.class);
+        startActivity(register);
     }
 }

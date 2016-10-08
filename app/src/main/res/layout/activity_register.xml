@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <EditText
+        android:id="@+id/name_reg"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"
+        android:hint="Nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/email_reg"
+        android:layout_marginTop="20dp"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/pass_reg"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:hint="Contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/pass2_reg"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:hint="Confirmar contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/cel_reg"
+        android:layout_marginTop="20dp"
+        android:inputType="phone"
+        android:hint="Número de celular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <CheckedTextView
+        android:id="@+id/terms_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Acepto los términos y condiciones de uso"/>
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:onClick="registerNewUser"/>
+</LinearLayout>

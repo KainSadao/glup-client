@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class Glup {
 
-    private static String GLUP_SERVER = "http://192.168.100.7/glup/index.php/api";
+    private static String GLUP_SERVER = "http://74.208.77.223/gc/index.php/api";
     private Context context;
 
     public Glup(Context context){
@@ -28,6 +28,17 @@ public class Glup {
         params.put("DataType", "login");
         params.put("user", user);
         params.put("pass", pass);
+        performJSONObjectRequest(params, response, error);
+    }
+
+    public static void registerUser(String name, String email, String pass, String cel,
+                                    Response.Listener response, Response.ErrorListener error){
+        Map<String, String> params = new HashMap<>();
+        params.put("DataType","registerUser");
+        params.put("name",name);
+        params.put("email",email);
+        params.put("pass",pass);
+        params.put("cel",cel);
         performJSONObjectRequest(params, response, error);
     }
 

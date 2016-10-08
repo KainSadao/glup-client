@@ -20,6 +20,10 @@
         <activity android:name=".Activities.LoginActivity">
 
         </activity>
+        <activity android:name=".Activities.RegisterActivity"
+            android:label="Registrar usuario">
+
+        </activity>
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

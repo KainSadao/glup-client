@@ -16,22 +16,21 @@ import java.util.TimerTask;
 
 public class SplashScreenActivity extends AppCompatActivity{
 
-    private static Timer timer;
+    private static final int DELAY_TIME_ACTIVITY = 2000;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        timer = new Timer();
-        timer.schedule(new TimerTask(){
-
+        TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreenActivity.this,LoginActivity.class);
-                startActivity(i);
+                Intent login = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                startActivity(login);
                 finish();
             }
-        }, 3000);
-
+        };
+        Timer timer = new Timer();
+        timer.schedule(task,DELAY_TIME_ACTIVITY);
     }
 }
