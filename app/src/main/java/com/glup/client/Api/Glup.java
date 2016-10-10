@@ -31,6 +31,12 @@ public class Glup {
         performJSONObjectRequest(params, response, error);
     }
 
+    public static void getAllProducts(Response.Listener response, Response.ErrorListener error){
+        Map<String, String> params = new HashMap<>();
+        params.put("DataType", "getAllProducts");
+        performJSONObjectRequest(params, response, error);
+    }
+
     /**
      * Realiza una petición POST con parámetros
      * @param params
