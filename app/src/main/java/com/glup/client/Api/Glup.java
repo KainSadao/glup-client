@@ -32,13 +32,19 @@ public class Glup {
     }
 
     public static void registerUser(String name, String email, String pass, String cel,
-                                    Response.Listener response, Response.ErrorListener error){
+                                    Response.Listener response, Response.ErrorListener error) {
         Map<String, String> params = new HashMap<>();
-        params.put("DataType","registerUser");
-        params.put("name",name);
-        params.put("email",email);
-        params.put("pass",pass);
-        params.put("cel",cel);
+        params.put("DataType", "registerUser");
+        params.put("name", name);
+        params.put("email", email);
+        params.put("pass", pass);
+        params.put("cel", cel);
+    }
+
+    public static void getAllProducts(Response.Listener response, Response.ErrorListener error){
+        Map<String, String> params = new HashMap<>();
+        params.put("DataType", "getAllProducts");
+
         performJSONObjectRequest(params, response, error);
     }
 
