@@ -39,6 +39,7 @@ public class Glup {
         params.put("email", email);
         params.put("pass", pass);
         params.put("cel", cel);
+        performJSONObjectRequest(params, response, error);
     }
 
     public static void getAllProducts(Response.Listener response, Response.ErrorListener error){

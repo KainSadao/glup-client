@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity{
         if(passText.getText().toString().trim().equals(pass2Text.getText().toString().trim())){
             if(isChecked()) {
                 pd = new ProgressDialog(this);
-                pd.setTitle("Iniciando sesión");
+                pd.setTitle("Registrando...");
                 pd.show();
                 Glup.registerUser(nameText.getText().toString().trim(), emailText.getText().toString().trim(),
                         passText.getText().toString().trim(), celText.getText().toString().trim(), new Response.Listener() {
