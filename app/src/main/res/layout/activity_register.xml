@@ -45,6 +45,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:checked="false"
+        android:onClick="termsToggle"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
         android:text="Acepto los términos y condiciones de uso"/>
     <Button
         android:layout_marginTop="20dp"

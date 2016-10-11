@@ -97,4 +97,8 @@ public class RegisterActivity extends AppCompatActivity{
         }
 
     }
+
+    public void termsToggle(View v){
+        termsCheck.toggle();
+    }
 }
