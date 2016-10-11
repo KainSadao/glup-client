@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class Glup {
 
-    private static String GLUP_SERVER = "http://192.168.100.7/glup/index.php/api";
+    private static String GLUP_SERVER = "http://74.208.77.223/gc/index.php/api";
     private Context context;
 
     public Glup(Context context){
