@@ -3,6 +3,7 @@ package com.glup.client.Activities;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.glup.client.Api.Glup;
 import com.glup.client.R;
+import com.glup.client.Utils.Aes;
 import com.glup.client.Utils.VolleyController;
 
 import org.json.JSONArray;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         netImage.setImageUrl(imageUrl,imageLoader);
                         productName.setText(name);
                         parent.addView(relativeLayout);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

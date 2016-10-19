@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.glup.client.Api.Glup;
 import com.glup.client.R;
+import com.glup.client.Utils.Aes;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setTitle("Iniciando sesión");
         pd.show();
-        Glup.login(user.getText().toString(), pass.getText().toString(), new Response.Listener() {
+        Glup.login(Aes.encrypt(user.getText().toString().trim()), Aes.encrypt(pass.getText().toString().trim()),
+                new Response.Listener() {
                     @Override
                     public void onResponse(Object response) {
                         pd.dismiss();

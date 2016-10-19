@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.glup.client.Api.Glup;
 import com.glup.client.R;
+import com.glup.client.Utils.Aes;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,8 +65,9 @@ public class RegisterActivity extends AppCompatActivity{
                 pd = new ProgressDialog(this);
                 pd.setTitle("Registrando...");
                 pd.show();
-                Glup.registerUser(nameText.getText().toString().trim(), emailText.getText().toString().trim(),
-                        passText.getText().toString().trim(), celText.getText().toString().trim(), new Response.Listener() {
+                Glup.registerUser(Aes.encrypt(nameText.getText().toString().trim()), Aes.encrypt(emailText.getText().toString().trim()),
+                        Aes.encrypt(passText.getText().toString().trim()), Aes.encrypt(celText.getText().toString().trim()),
+                        new Response.Listener() {
                             @Override
                             public void onResponse(Object response) {
                                 pd.dismiss();
