@@ -3,38 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:gravity="center_horizontal">
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/glup"/>
-    <EditText
-        android:id="@+id/user"
-        android:layout_marginTop="20dp"
-        android:inputType="textEmailAddress"
-        android:hint="Email"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/pass"
-        android:layout_marginTop="20dp"
-        android:inputType="textPassword"
-        android:hint="Contraseña"
+        android:layout_height="200dp"
+        android:layout_marginTop="-60dp"
+        android:src="@drawable/bsa_login"/>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ingresar"
-        android:onClick="login"/>
-    <Button
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrarse"
-        android:onClick="registerUser"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="-50dp"
+        android:background="@color/yellow_glup"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+        <EditText
+            android:id="@+id/user"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/pass"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:hint="Contraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_glup"
+            android:textColor="@color/blue_glup"
+            android:text="Ingresar"
+            android:onClick="login"/>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_glup"
+            android:textColor="@color/blue_glup"
+            android:text="Registrarse"
+            android:onClick="registerUser"/>
+    </LinearLayout>
 </LinearLayout>
