@@ -1,41 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/glup"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="-60dp"
-        android:src="@drawable/bsa_login"/>
+    android:gravity="center"
+    android:fitsSystemWindows="true">
+
+
     <RelativeLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:layout_marginTop="-50dp"
         android:background="@color/yellow_glup"
         android:paddingLeft="10dp"
         android:paddingRight="10dp">
-        <EditText
-            android:id="@+id/user"
-            android:inputType="textEmailAddress"
-            android:hint="Email"
-            android:layout_marginTop="20dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingLeft="5dp"
-            android:background="@android:color/white"
+
+        <TextView
+            android:id="@+id/texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Glup(c)2016 Todos los derechos reservados"/>
+        <Button
+            android:id="@+id/forgotten_pass_button"
+            android:layout_above="@id/texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Olvidé mi contraseña"
+            android:background="@null"/>
+        <Button
+            android:id="@+id/register_button"
+            android:layout_above="@id/forgotten_pass_button"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="#0049cc"
+            android:textColor="@android:color/white"
+            android:text="Registrarse"
+            android:onClick="registerUser"/>
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_above="@id/register_button"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#0049cc"
+            android:textColor="@android:color/white"
+            android:text="Ingresar"
+            android:onClick="login"/>
+
         <EditText
             android:id="@+id/pass"
-            android:layout_below="@id/user"
+            android:layout_above="@id/login_button"
             android:layout_marginTop="5dp"
             android:inputType="textPassword"
             android:hint="Contraseña"
@@ -44,40 +65,36 @@
             android:paddingLeft="5dp"
             android:background="@android:color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/login_button"
-            android:layout_below="@id/pass"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/user"
+            android:layout_above="@id/pass"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
             android:layout_marginTop="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:background="@android:color/white"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#0049cc"
-            android:textColor="@android:color/white"
-            android:text="Ingresar"
-            android:onClick="login"/>
-        <Button
-            android:id="@+id/register_button"
-            android:layout_below="@id/login_button"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/bsa_icon"
+            android:layout_above="@id/user"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#0049cc"
-            android:textColor="@android:color/white"
-            android:text="Registrarse"
-            android:onClick="registerUser"/>
-        <Button
-            android:id="@+id/forgotten_pass_button"
-            android:layout_below="@id/register_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="-60dp"
+            android:background="@android:color/white"
+            android:src="@drawable/bsa_login"/>
+        <ImageView
+            android:id="@+id/glup_icon"
+            android:layout_above="@id/bsa_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerHorizontal="true"
-            android:text="Olvidé mi contraseña"
-            android:background="@null"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:text="Glup(c)2016 Todos los derechos reservados"/>
+            android:background="@android:color/white"
+            android:src="@drawable/glup"/>
     </RelativeLayout>
-</LinearLayout>
+
+</RelativeLayout>

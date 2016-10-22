@@ -1,12 +1,17 @@
 package com.glup.client.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -74,5 +79,10 @@ public class LoginActivity extends AppCompatActivity {
     public void registerUser(View v){
         Intent register = new Intent(this, RegisterActivity.class);
         startActivity(register);
+    }
+
+    private static float dpToPx(Context context, float value) {
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, metrics);
     }
 }
