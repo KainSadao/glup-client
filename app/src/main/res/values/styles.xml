@@ -14,7 +14,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
-
+    <style name="loginActivityTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="glupTheme" parent="AppTheme" >
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="windowActionBar">false</item>

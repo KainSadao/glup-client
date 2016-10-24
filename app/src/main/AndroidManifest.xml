@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.LoginActivity"
-            android:theme="@style/AppTheme"
+            android:theme="@style/loginActivityTheme"
             android:windowSoftInputMode="adjustResize|stateHidden">
 
         </activity>
