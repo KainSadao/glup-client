@@ -26,22 +26,30 @@ public class CustomSwipeAdapter extends PagerAdapter{
 
     @Override
     public int getCount() {
-        return images.length;
+        return 3;
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return (view == (LinearLayout)object);
+        return (view == (View)object);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        li = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = li.inflate(R.layout.swipe_images, container, false);
-        ImageView image = (ImageView)view.findViewById(R.id.image_viewpager);
-        image.setImageResource(images[position]);
-        container.addView(view);
-        return view;
+
+        int resId = 0;
+        switch (position) {
+            case 0:
+                resId = R.id.step1;
+                break;
+            case 1:
+                resId = R.id.step2;
+                break;
+            case 2:
+                resId = R.id.step3;
+                break;
+        }
+        return container.findViewById(resId);
     }
 
     @Override

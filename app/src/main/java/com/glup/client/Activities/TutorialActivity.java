@@ -22,8 +22,8 @@ public class TutorialActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
         viewPager = (ViewPager)findViewById(R.id.pageviewer);
+        viewPager.setOffscreenPageLimit(3);
         adapter = new CustomSwipeAdapter(this);
         viewPager.setAdapter(adapter);
-
     }
 }
