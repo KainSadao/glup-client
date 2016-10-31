@@ -57,11 +57,23 @@
                 android:src="@drawable/step3"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="PAGA EN EFECTIVO O CON TARJETA"
+                android:layout_marginTop="-20dp"
                 android:textColor="#FFF"
                 android:textSize="20sp"
                 android:gravity="center"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_glup"
+                android:textColor="#FFF"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:onClick="startLogin"
+                android:text="Entendido!"/>
         </LinearLayout>
     </android.support.v4.view.ViewPager>
 </LinearLayout>

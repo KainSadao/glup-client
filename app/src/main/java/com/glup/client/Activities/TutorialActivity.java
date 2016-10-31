@@ -1,9 +1,11 @@
 package com.glup.client.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Toast;
 
 import com.glup.client.R;
@@ -42,5 +44,11 @@ public class TutorialActivity extends AppCompatActivity{
 
             }
         });*/
+    }
+
+    public void startLogin(View v){
+        Intent login = new Intent(this, LoginActivity.class);
+        startActivity(login);
+        finish();
     }
 }
