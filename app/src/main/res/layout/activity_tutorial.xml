@@ -1,39 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black_glup">
     <android.support.v4.view.ViewPager
         android:id="@+id/pageviewer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
         <LinearLayout
             android:id="@+id/step1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 android:src="@drawable/step1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¿ERES MAYOR DE EDAD?"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/step2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 android:src="@drawable/step2"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SELECCIONA TUS BEBIDAS FAVORITAS"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/step3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 android:src="@drawable/step3"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="PAGA EN EFECTIVO O CON TARJETA"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                android:gravity="center"/>
         </LinearLayout>
     </android.support.v4.view.ViewPager>
 </LinearLayout>
