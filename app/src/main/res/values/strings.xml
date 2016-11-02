@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Glup</string>
+
+    <string name="ini_preferences">com.glup.client.INI_PREFERENCES</string>
 </resources>

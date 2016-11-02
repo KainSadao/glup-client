@@ -3,6 +3,7 @@ package com.glup.client.Activities;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -82,8 +83,8 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(register);
     }
 
-    private static float dpToPx(Context context, float value) {
-        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, metrics);
+    private void setPreferences(){
+        SharedPreferences preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE));
+
     }
 }
