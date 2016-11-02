@@ -1,12 +1,16 @@
 package com.glup.client.Activities;
 
 import android.app.ProgressDialog;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,11 +31,15 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog pd;
+    private static Toolbar toolbar;
+    private static DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setToolbar();
+        setDrawer();
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando productos...");
         pd.show();
@@ -74,5 +82,30 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private Toolbar getToolbar() {
+        return toolbar;
+    }
+
+    private void setToolbar() {
+        toolbar = (Toolbar)findViewById(R.id.bar_container);
+        setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    private DrawerLayout getDrawer() {
+        return drawer;
+    }
+
+    private void setDrawer() {
+        ListView lv;
+        String[] names;
+
+        names = getResources().getStringArray(R.array.names);
+        drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        lv = (ListView)findViewById(R.id.drawer_left);
+
+        lv.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, names));
     }
 }
