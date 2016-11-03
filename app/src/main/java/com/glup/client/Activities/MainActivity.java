@@ -1,6 +1,8 @@
 package com.glup.client.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,8 +33,9 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog pd;
-    private static Toolbar toolbar;
-    private static DrawerLayout drawer;
+    private Toolbar toolbar;
+    private DrawerLayout drawer;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                         netImage.setImageUrl(imageUrl,imageLoader);
                         productName.setText(name);
                         parent.addView(relativeLayout);
-
+                        setPreferences();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -107,5 +110,12 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView)findViewById(R.id.drawer_left);
 
         lv.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, names));
+    }
+
+    private void setPreferences(){
+        preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("name","Kain");
+        editor.apply();
     }
 }

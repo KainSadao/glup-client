@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText user;
     private EditText pass;
     private ProgressDialog pd;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         user = (EditText)findViewById(R.id.user);
         pass = (EditText)findViewById(R.id.pass);
         user.requestFocus();
+        getPreferences();
     }
 
     public void login(View v){
@@ -83,8 +85,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(register);
     }
 
-    private void setPreferences(){
-        SharedPreferences preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE));
-
+    private void getPreferences(){
+        preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
+        String str = preferences.getString("name",":(");
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 }
