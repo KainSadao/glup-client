@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                             }else if(status.equals("error")){
                                 Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
                             }
-                            
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void getPreferences(){
         preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
-        String str = preferences.getString("name",":(");
+        String str = preferences.getString("name",":("); //Si no encuentra muestra el segundo parámetro
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 }

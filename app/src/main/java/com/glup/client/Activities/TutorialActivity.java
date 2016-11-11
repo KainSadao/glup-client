@@ -1,6 +1,8 @@
 package com.glup.client.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -47,6 +49,10 @@ public class TutorialActivity extends AppCompatActivity{
     }
 
     public void startLogin(View v){
+        SharedPreferences preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("enableTutorial", false);
+        editor.apply();
         Intent login = new Intent(this, LoginActivity.class);
         startActivity(login);
         finish();
