@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         pd = new ProgressDialog(this);
         pd.setMessage("Cargando productos...");
         pd.show();
+        preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
         Glup.getAllProducts(new Response.Listener() {
             @Override
             public void onResponse(Object response) {
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         netImage.setImageUrl(imageUrl,imageLoader);
                         productName.setText(name);
                         parent.addView(relativeLayout);
-                        setPreferences();
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+        setPreferences();
     }
 
     private Toolbar getToolbar() {
@@ -124,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setPreferences(){
-        preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("isLogged", true);
         editor.putBoolean("enableTutorial", false);

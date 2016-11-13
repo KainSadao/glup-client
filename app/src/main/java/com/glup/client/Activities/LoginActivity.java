@@ -34,6 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText pass;
     private ProgressDialog pd;
     private SharedPreferences preferences;
+    private String encryptedEmail;
+    private String encryptedPass;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,14 +44,57 @@ public class LoginActivity extends AppCompatActivity {
         user = (EditText)findViewById(R.id.user);
         pass = (EditText)findViewById(R.id.pass);
         user.requestFocus();
-        getPreferences();
+        //getPreferences();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
+        if(isLogged()){
+            pd = new ProgressDialog(this);
+            pd.setTitle("Iniciando sesión");
+            pd.show();
+            String emailString = preferences.getString("email", "null");
+            String passString = preferences.getString("pass", "null");
+            Glup.login(emailString, passString,
+                    new Response.Listener() {
+                        @Override
+                        public void onResponse(Object response) {
+                            pd.dismiss();
+                            try {
+                                JSONObject responseJson = new JSONObject(response.toString());
+                                String status = responseJson.getString("Status");
+                                if(status.equals("ok")){
+                                    Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(main);
+                                    finish();
+                                }else if(status.equals("error")){
+                                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            pd.dismiss();
+                            Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+        }
     }
 
     public void login(View v){
         pd = new ProgressDialog(this);
         pd.setTitle("Iniciando sesión");
         pd.show();
-        Glup.login(Aes.encrypt(user.getText().toString().trim()), Aes.encrypt(pass.getText().toString().trim()),
+        encryptedEmail = Aes.encrypt(user.getText().toString().trim());
+        encryptedPass = Aes.encrypt(pass.getText().toString().trim());
+        Glup.login(encryptedEmail, encryptedPass,
                 new Response.Listener() {
                     @Override
                     public void onResponse(Object response) {
@@ -58,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject responseJson = new JSONObject(response.toString());
                             String status = responseJson.getString("Status");
                             if(status.equals("ok")){
+                                setPreferences();
                                 Intent main = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(main);
                                 finish();
@@ -85,9 +131,14 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(register);
     }
 
-    private void getPreferences(){
-        preferences = this.getSharedPreferences(getString(R.string.ini_preferences), Context.MODE_PRIVATE);
-        String str = preferences.getString("name",":("); //Si no encuentra muestra el segundo parámetro
-        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+    private void setPreferences(){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("email", encryptedEmail);
+        editor.putString("pass", encryptedPass);
+        editor.apply();
+    }
+
+    private boolean isLogged(){
+        return preferences.getBoolean("isLogged", false); //Si no encuentra muestra el segundo parámetro
     }
 }

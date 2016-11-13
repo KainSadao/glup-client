@@ -53,7 +53,7 @@ public class SplashScreenActivity extends AppCompatActivity{
     private void createSharedPreferences(){
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("isFirstRun", false);
-        editor.putString("name","");
+        editor.putString("email","");
         editor.putBoolean("isLogged", false);
         editor.putBoolean("enableTutorial", true);
         editor.apply();
