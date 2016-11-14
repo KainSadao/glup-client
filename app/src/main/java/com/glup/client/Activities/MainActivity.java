@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         lv.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, names));
+        TextView userName = (TextView)findViewById(R.id.user_name);
+        userName.setText(getIntent().getStringExtra("UserName"));
     }
 
     private void setPreferences(){

@@ -4,8 +4,8 @@
     <string name="ini_preferences">com.glup.client.INI_PREFERENCES</string>
 
     <array name="names">
-        <item>name 1</item>
-        <item>name 2</item>
+        <item>Reiniciar tutorial</item>
+        <item>Cerrar sesión</item>
     </array>
 
 </resources>

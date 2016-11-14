@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String status = responseJson.getString("Status");
                                 if(status.equals("ok")){
                                     Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                                    main.putExtra("UserName", responseJson.getString("UserName"));
                                     startActivity(main);
                                     finish();
                                 }else if(status.equals("error")){
@@ -105,6 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(status.equals("ok")){
                                 setPreferences();
                                 Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                                main.putExtra("UserName", responseJson.getString("UserName"));
                                 startActivity(main);
                                 finish();
                             }else if(status.equals("error")){
