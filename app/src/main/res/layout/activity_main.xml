@@ -15,21 +15,66 @@
         <include
             android:id="@+id/bar_container"
             layout="@layout/app_bar"/>
-        <HorizontalScrollView
-            android:id="@+id/horizontal_layout"
+        <!-- Main view -->
+        <LinearLayout
+            android:id="@+id/linear"
             android:layout_below="@id/bar_container"
             android:layout_width="match_parent"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            android:layout_height="190dp">
-            <LinearLayout
-                android:id="@+id/parent_layout1"
-                android:orientation="horizontal"
+            android:layout_height="match_parent">
+            <HorizontalScrollView
+                android:id="@+id/horizontal_layout"
+                android:layout_below="@id/bar_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </LinearLayout>
-        </HorizontalScrollView>
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:layout_height="190dp">
+                <LinearLayout
+                    android:id="@+id/parent_layout1"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+        <!-- Side layout -->
+        <LinearLayout
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/side_layout"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="#b2b2b2"
+            android:orientation="vertical"
+            android:gravity="end">
+            <ImageView
+                android:layout_marginTop="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ubuntu"
+                android:scaleType="fitXY"/>
+            <ImageView
+                android:layout_marginTop="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ubuntu"
+                android:scaleType="fitXY" />
+            <ImageView
+                android:layout_marginTop="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/ubuntu"
+                android:scaleType="fitXY" />
+        </LinearLayout>
     </RelativeLayout>
 
     <!-- Navigation drawer -->
